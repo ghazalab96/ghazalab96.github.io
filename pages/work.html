@@ -24,8 +24,8 @@
     /* Square project grid */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
       padding-bottom: 80px;
     }
 
@@ -72,7 +72,10 @@
     .project-card-arrow { font-size: 16px; color: var(--text-muted); transition: transform var(--transition), color var(--transition); }
     .project-card:hover .project-card-arrow { transform: translate(3px, -3px); color: var(--accent); }
 
-    @media (max-width: 640px) {
+    @media (max-width: 900px) {
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
       .project-grid { grid-template-columns: 1fr; }
     }
   </style>
