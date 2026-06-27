@@ -59,13 +59,13 @@
   margin-bottom: 20px;
 }
 
-/* ── Contact Grid ── */
-.contact-grid {
+/* ── Contact ── */
+.contact-wrap {
   display: grid;
-  grid-template-columns: 0.65fr 1fr;
-  gap: 48px;
-  align-items: start;
-  max-width: 860px;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 900px;
 }
 
 /* ── Footer ── */
@@ -92,12 +92,9 @@
     grid-template-columns: 1fr;
   }
 
-  .contact-grid {
+  .contact-wrap {
     grid-template-columns: 1fr;
-  }
-
-  .contact-grid > *:last-child {
-    order: -1; /* info before form on tablet */
+    gap: 40px;
   }
 }
 
