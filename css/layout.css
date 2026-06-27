@@ -1,230 +1,129 @@
-/* ====================================
-   GENERAL
-==================================== */
-
-body {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 30px;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
-
-/* ====================================
-   HEADER
-==================================== */
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 60px;
+/* ── Header ── */
+.site-header {
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
 }
 
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 600;
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.navigation {
-    display: flex;
-    gap: 15px;
-
-    background: var(--card);
-    padding: 8px;
-
-    border-radius: var(--radius-pill);
-
-    box-shadow: var(--shadow-soft);
+/* ── Hero Grid ── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.1fr;
+  gap: 32px;
+  align-items: start;
+  padding-top: 48px;
+  padding-bottom: 40px;
 }
 
-.navigation a {
-    padding: 12px 22px;
-    border-radius: var(--radius-pill);
-
-    transition: var(--transition);
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.navigation a:hover {
-    transform: translateY(-2px);
+.hero-right-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-
-/* ====================================
-   HERO GRID
-==================================== */
-
-.hero-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        2fr
-        1fr;
-
-    grid-template-rows:
-        auto
-        auto;
-
-    gap: 25px;
-
-    margin-bottom: 80px;
+/* ── Sections ── */
+.section {
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
-
-/* ====================================
-   HERO
-==================================== */
-
-.hero {
-
-    grid-row: 1 / 3;
-
-    background: var(--bg);
-
-    padding: 40px;
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
 }
 
-.hero h1 {
-
-    font-family: var(--font-heading);
-
-    font-size: var(--title-hero);
-
-    line-height: 0.95;
-
-    margin-top: 30px;
-    margin-bottom: 30px;
+/* ── Contact Grid ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.65fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 860px;
 }
 
-.hero p {
-
-    max-width: 500px;
-
-    font-size: var(--text-lg);
-
-    color: var(--text-light);
-
-    line-height: 1.7;
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
 }
 
-
-/* ====================================
-   CARDS
-==================================== */
-
-.latest-project,
-.latest-note,
-.github {
-
-    background: var(--card);
-
-    padding: 30px;
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-soft);
-
-    transition: var(--transition);
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.latest-project:hover,
-.latest-note:hover,
-.github:hover {
+/* ════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════ */
 
-    transform:
-        translateY(-6px)
-        scale(1.02);
+/* Tablet — 900px */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
 
-    box-shadow:
-        var(--shadow-hover);
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid > *:last-child {
+    order: -1; /* info before form on tablet */
+  }
 }
 
+/* Mobile — 800px */
+@media (max-width: 800px) {
+  .container {
+    padding: 0 10px;
+  }
 
-/* ====================================
-   LATEST PROJECT
-==================================== */
+  .section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
 
-.latest-project {
+  .hero-grid {
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
 
-    min-height: 350px;
-}
+  .hero-right-bottom {
+    grid-template-columns: 1fr;
+  }
 
-
-/* ====================================
-   NOTE + GITHUB
-==================================== */
-
-.latest-note,
-.github {
-
-    min-height: 180px;
-}
-
-
-/* ====================================
-   CURRENT FOCUS
-==================================== */
-
-.current-focus {
-
-    background: var(--card);
-
-    padding: 40px;
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-soft);
-
-    margin-bottom: 50px;
-}
-
-
-/* ====================================
-   FEATURED WORK
-==================================== */
-
-.featured-work {
-
-    background: var(--card);
-
-    padding: 40px;
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-soft);
-
-    margin-bottom: 50px;
-}
-
-
-/* ====================================
-   CONTACT
-==================================== */
-
-.contact {
-
-    background: var(--card);
-
-    padding: 40px;
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-soft);
-
-    margin-bottom: 50px;
-}
-
-
-/* ====================================
-   FOOTER
-==================================== */
-
-.footer {
-
-    display: flex;
-    gap: 30px;
-
-    padding: 30px 0;
+  .site-footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }

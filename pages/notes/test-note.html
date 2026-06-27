@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How I Set Up This Website — Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../../css/base.css?v=2" />
+  <link rel="stylesheet" href="../../css/layout.css?v=6" />
+  <link rel="stylesheet" href="../../css/components.css?v=2" />
+  <style>
+    .note-page { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+    .note-header { padding: 56px 0 40px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 32px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .note-topic { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .note-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+    .note-meta { font-size: 13px; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap; }
+    .note-cover { width: 100%; height: 320px; background: #1a1a2e; border-radius: var(--radius); margin: 32px 0; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .note-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .note-cover-placeholder { color: rgba(255,255,255,0.3); font-size: 13px; text-align: center; }
+    .note-body { padding-bottom: 80px; }
+    .note-body h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .note-body h3 { font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+    .note-body p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; }
+    .note-body ul, .note-body ol { padding-left: 24px; margin-bottom: 18px; }
+    .note-body li { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
+    .note-body code { font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; color: var(--text-primary); }
+    .note-body pre { background: #0D1117; border-radius: var(--radius-sm); padding: 20px; margin: 20px 0; overflow-x: auto; }
+    .note-body pre code { background: none; padding: 0; color: #E6EDF3; font-size: 13px; line-height: 1.7; }
+    .note-body blockquote { border-left: 3px solid var(--accent); padding-left: 20px; margin: 24px 0; color: var(--text-secondary); font-style: italic; }
+    .note-image { width: 100%; border-radius: var(--radius-sm); margin: 24px 0; overflow: hidden; background: var(--bg-card-alt); border: 1px solid var(--border); }
+    .note-image img { width: 100%; display: block; }
+    .note-image-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+    .note-image figcaption { font-size: 12px; color: var(--text-muted); text-align: center; padding: 8px 12px; }
+    .note-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 32px 0; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../../index.html">home</a>
+        <a href="../work.html">work</a>
+        <a href="../notes.html" class="active">notes</a>
+        <a href="../about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="note-page">
+    <div class="note-header">
+      <a href="../notes.html" class="back-link">← All notes</a>
+      <p class="note-topic">Meta · Web</p>
+      <h1 class="note-title">How I Set Up This Website</h1>
+      <div class="note-meta">
+        <span>Jun 2026</span>
+        <span>·</span>
+        <span>5 min read</span>
+      </div>
+    </div>
+
+    <div class="note-cover">
+      <!-- <img src="../../assets/images/note-test-cover.jpg" alt="Website cover" /> -->
+      <div class="note-cover-placeholder">Cover image placeholder</div>
+    </div>
+
+    <div class="note-body">
+
+      <h2>Why a personal site?</h2>
+      <p>
+        This is a test note. Replace this content with your own writing. A personal website is a good place to document what you're learning, share projects, and have a corner of the internet that's yours.
+      </p>
+
+      <h2>The stack</h2>
+      <p>
+        Plain HTML, CSS, and JavaScript — no frameworks. Hosted on GitHub Pages.
+      </p>
+      <ul>
+        <li>Static HTML files for each page</li>
+        <li>Shared CSS across all pages via <code>variables.css</code>, <code>base.css</code>, <code>layout.css</code>, <code>components.css</code></li>
+        <li>No build step needed — push to GitHub and it goes live</li>
+      </ul>
+
+      <div class="note-tags">
+        <span class="tag">Meta</span>
+        <span class="tag">Web</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

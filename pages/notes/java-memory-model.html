@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Memory Model — Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../../css/base.css?v=2" />
+  <link rel="stylesheet" href="../../css/layout.css?v=6" />
+  <link rel="stylesheet" href="../../css/components.css?v=2" />
+  <style>
+    .note-page { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    .note-header { padding: 56px 0 40px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 32px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+
+    .note-topic { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .note-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+    .note-meta { font-size: 13px; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .note-cover {
+      width: 100%;
+      height: 320px;
+      background: #0D1117;
+      border-radius: var(--radius);
+      margin: 32px 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .note-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .note-cover-placeholder { color: rgba(255,255,255,0.3); font-size: 13px; text-align: center; }
+
+    /* Prose */
+    .note-body { padding-bottom: 80px; }
+    .note-body h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .note-body h3 { font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+    .note-body p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; }
+    .note-body ul, .note-body ol { padding-left: 24px; margin-bottom: 18px; }
+    .note-body li { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
+    .note-body code { font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; color: var(--text-primary); }
+    .note-body pre { background: #0D1117; border-radius: var(--radius-sm); padding: 20px; margin: 20px 0; overflow-x: auto; }
+    .note-body pre code { background: none; padding: 0; color: #E6EDF3; font-size: 13px; line-height: 1.7; }
+    .note-body blockquote { border-left: 3px solid var(--accent); padding-left: 20px; margin: 24px 0; color: var(--text-secondary); font-style: italic; }
+
+    .note-image {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      margin: 24px 0;
+      overflow: hidden;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border);
+    }
+    .note-image img { width: 100%; display: block; }
+    .note-image-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+    .note-image figcaption { font-size: 12px; color: var(--text-muted); text-align: center; padding: 8px 12px; }
+
+    .note-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 32px 0; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../../index.html">home</a>
+        <a href="../work.html">work</a>
+        <a href="../notes.html" class="active">notes</a>
+        <a href="../about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="note-page">
+    <div class="note-header">
+      <a href="../notes.html" class="back-link">← All notes</a>
+      <p class="note-topic">Java · Software Engineering</p>
+      <h1 class="note-title">Java Memory Model</h1>
+      <div class="note-meta">
+        <span>Jun 2026</span>
+        <span>·</span>
+        <span>12 min read</span>
+      </div>
+    </div>
+
+    <!-- Cover image — add your image to assets/images/ and update the src -->
+    <div class="note-cover">
+      <!-- <img src="../../assets/images/note-java-memory-model-cover.jpg" alt="Java Memory Model" /> -->
+      <div class="note-cover-placeholder">
+        Cover image<br>
+        <span style="font-size:11px;margin-top:4px;display:block;">Add to assets/images/ and uncomment the img tag above</span>
+      </div>
+    </div>
+
+    <div class="note-body">
+
+      <h2>Introduction</h2>
+      <p>
+        The Java Memory Model (JMM) defines how threads interact through memory and what behaviors are allowed in concurrent programs. Understanding it is essential for writing correct multithreaded Java code.
+      </p>
+      <p>
+        Without a formal memory model, the compiler and CPU are free to reorder instructions for performance — which can lead to surprising bugs in concurrent programs.
+      </p>
+
+      <!-- Image example — add your own images below -->
+      <figure class="note-image">
+        <!-- <img src="../../assets/images/note-java-memory-model-1.jpg" alt="Diagram of Java Memory Model" /> -->
+        <div class="note-image-placeholder">Image placeholder — add to assets/images/</div>
+        <figcaption>The relationship between main memory and thread working memory in the JMM.</figcaption>
+      </figure>
+
+      <h2>The Problem: Visibility</h2>
+      <p>
+        Each thread may cache variables in its own working memory (CPU registers or caches). Without synchronization, one thread's changes to a variable may not be visible to another thread.
+      </p>
+      <pre><code>// Thread 1
+flag = true;
+
+// Thread 2
+while (!flag) {
+    // may loop forever without volatile
+}</code></pre>
+
+      <h2>volatile</h2>
+      <p>
+        Declaring a variable <code>volatile</code> guarantees that reads and writes go directly to main memory, making changes immediately visible to all threads.
+      </p>
+      <pre><code>private volatile boolean flag = false;</code></pre>
+      <p>
+        However, <code>volatile</code> does not make compound actions (like <code>i++</code>) atomic. For that, you need either <code>synchronized</code> or classes from <code>java.util.concurrent.atomic</code>.
+      </p>
+
+      <h2>synchronized and Happens-Before</h2>
+      <p>
+        The JMM defines a <strong>happens-before</strong> relationship. If action A happens-before action B, then the effects of A are guaranteed to be visible to B.
+      </p>
+      <ul>
+        <li>Unlocking a monitor happens-before every subsequent lock of that monitor</li>
+        <li>A write to a <code>volatile</code> field happens-before every subsequent read of that field</li>
+        <li>Thread start happens-before any action in the started thread</li>
+      </ul>
+
+      <!-- Add more sections as you write the note -->
+      <h2>Further Reading</h2>
+      <p>
+        Add your references, links, or book recommendations here.
+      </p>
+
+      <!-- Tags -->
+      <div class="note-tags">
+        <span class="tag">Java</span>
+        <span class="tag">Concurrency</span>
+        <span class="tag">Software Engineering</span>
+        <span class="tag">JVM</span>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

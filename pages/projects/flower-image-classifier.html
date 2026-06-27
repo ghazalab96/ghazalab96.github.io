@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flower Image Classifier — Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../../css/base.css?v=2" />
+  <link rel="stylesheet" href="../../css/layout.css?v=6" />
+  <link rel="stylesheet" href="../../css/components.css?v=2" />
+  <style>
+    .project-page { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 32px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .project-header { padding: 56px 0 0; }
+    .project-category { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .project-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px; }
+    .project-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .project-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .project-meta-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .project-meta-value { font-size: 13px; font-weight: 500; }
+    .project-links { display: flex; gap: 12px; margin-bottom: 40px; }
+    .project-link-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); transition: all var(--transition); }
+    .project-link-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .project-cover { width: 100%; height: 400px; background: #1a2a1a; border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+    .project-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .project-cover-placeholder { color: rgba(255,255,255,0.3); font-size: 13px; text-align: center; line-height: 1.8; }
+    .project-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 48px; }
+    .gallery-img { width: 100%; aspect-ratio: 16/9; background: var(--bg-card-alt); border-radius: var(--radius-sm); border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .gallery-img img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-img-placeholder { font-size: 12px; color: var(--text-muted); text-align: center; padding: 8px; }
+    .project-body { padding-bottom: 80px; }
+    .project-body h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .project-body p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; }
+    .project-body ul { padding-left: 24px; margin-bottom: 18px; }
+    .project-body li { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
+    .project-body code { font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; }
+    .project-inline-img { width: 100%; border-radius: var(--radius-sm); margin: 24px 0; overflow: hidden; background: var(--bg-card-alt); border: 1px solid var(--border); }
+    .project-inline-img img { width: 100%; display: block; }
+    .project-inline-img-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+    .project-inline-img figcaption { font-size: 12px; color: var(--text-muted); text-align: center; padding: 8px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../../index.html">home</a>
+        <a href="../work.html" class="active">work</a>
+        <a href="../notes.html">notes</a>
+        <a href="../about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <div class="project-header">
+      <a href="../work.html" class="back-link">← All projects</a>
+      <p class="project-category">Machine Learning</p>
+      <h1 class="project-title">Flower Image Classifier</h1>
+
+      <div class="project-meta">
+        <div class="project-meta-item">
+          <span class="project-meta-label">Date</span>
+          <span class="project-meta-value">Feb 2025</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Type</span>
+          <span class="project-meta-value">Udacity Nanodegree</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Status</span>
+          <span class="project-meta-value">Completed</span>
+        </div>
+      </div>
+
+      <div class="tag-list" style="margin-bottom: 24px;">
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Transfer Learning</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/ghazalab96/aipnd-project-2" target="_blank" class="project-link-btn project-link-btn--primary">View on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-cover">
+      <!-- <img src="../../assets/images/project-classifier-cover.jpg" alt="Flower Image Classifier" /> -->
+      <div class="project-cover-placeholder">
+        Cover image<br>
+        <span style="font-size:11px;">Add file: assets/images/project-classifier-cover.jpg</span>
+      </div>
+    </div>
+
+    <div class="project-gallery">
+      <figure class="gallery-img">
+        <!-- <img src="../../assets/images/project-classifier-1.jpg" alt="Screenshot 1" /> -->
+        <div class="gallery-img-placeholder">assets/images/project-classifier-1.jpg</div>
+      </figure>
+      <figure class="gallery-img">
+        <!-- <img src="../../assets/images/project-classifier-2.jpg" alt="Screenshot 2" /> -->
+        <div class="gallery-img-placeholder">assets/images/project-classifier-2.jpg</div>
+      </figure>
+    </div>
+
+    <div class="project-body">
+
+      <h2>Overview</h2>
+      <p>
+        A deep learning model trained to classify flower species using PyTorch and transfer learning. Built as part of the Udacity AI Programming with Python Nanodegree. The model uses a pre-trained convolutional neural network (CNN) and fine-tunes it on a flower dataset.
+      </p>
+
+      <h2>Approach</h2>
+      <p>
+        Describe your approach — which pre-trained architecture did you use (VGG, ResNet, etc.)? How did you fine-tune it?
+      </p>
+      <ul>
+        <li>Data preprocessing and augmentation</li>
+        <li>Transfer learning strategy</li>
+        <li>Training and validation results</li>
+      </ul>
+
+      <h2>Results</h2>
+      <p>
+        Add your model's accuracy, training curves, or example predictions here.
+      </p>
+
+      <figure class="project-inline-img">
+        <!-- <img src="../../assets/images/project-classifier-results.jpg" alt="Results" /> -->
+        <div class="project-inline-img-placeholder">assets/images/project-classifier-results.jpg</div>
+        <figcaption>Training accuracy and validation accuracy over epochs</figcaption>
+      </figure>
+
+      <h2>What I Learned</h2>
+      <p>Write about your key takeaways — transfer learning, PyTorch workflow, or ML in general.</p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

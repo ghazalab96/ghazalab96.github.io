@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../css/base.css?v=2" />
+  <link rel="stylesheet" href="../css/layout.css?v=6" />
+  <link rel="stylesheet" href="../css/components.css?v=2" />
+  <style>
+    .page-hero { padding: 56px 0 40px; }
+    .page-title { font-size: clamp(40px, 6vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+    .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 480px; line-height: 1.65; }
+
+    /* Filter bar */
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { padding: 8px 18px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); cursor: pointer; transition: all var(--transition); }
+    .filter-btn:hover, .filter-btn.active { background: var(--nav-active-bg); color: var(--nav-active-text); border-color: var(--nav-active-bg); }
+
+    /* Square project grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding-bottom: 80px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .project-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+
+    /* Square thumbnail */
+    .project-card-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #1A1A2E;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .project-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-card-thumb-placeholder {
+      color: rgba(255,255,255,0.25);
+      font-size: 12px;
+      text-align: center;
+      padding: 16px;
+      line-height: 1.6;
+    }
+
+    /* Card body */
+    .project-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .project-card-category { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .project-card-title { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+    .project-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; flex: 1; margin-top: 2px; }
+    .project-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .project-card-date { font-size: 11px; color: var(--text-muted); }
+    .project-card-arrow { font-size: 16px; color: var(--text-muted); transition: transform var(--transition), color var(--transition); }
+    .project-card:hover .project-card-arrow { transform: translate(3px, -3px); color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .project-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../index.html">home</a>
+        <a href="work.html" class="active">work</a>
+        <a href="notes.html">notes</a>
+        <a href="about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-hero">
+        <p class="section-label">Projects</p>
+        <h1 class="page-title">Things I've built.</h1>
+        <p class="page-subtitle">A collection of projects spanning web development, software engineering, and machine learning.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Full Stack">Full Stack</button>
+        <button class="filter-btn" data-filter="Software Engineering">Software Engineering</button>
+        <button class="filter-btn" data-filter="Machine Learning">Machine Learning</button>
+      </div>
+
+      <div class="project-grid">
+
+        <a class="project-card" href="projects/austria-immigration-platform.html" data-category="Full Stack">
+          <div class="project-card-thumb">
+            <img src="../assets/images/aip/AIP1.png" alt="Austria Immigration Platform" />
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-category">Full Stack Web Development</span>
+            <span class="project-card-title">Austria Immigration Platform</span>
+            <span class="project-card-desc">A full-stack web app to help international students navigate relocating and studying in Austria.</span>
+            <div class="tag-list" style="margin-top:8px;">
+              <span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">Express.js</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">Jun 2026</span>
+              <span class="project-card-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/java-chatroom.html" data-category="Software Engineering">
+          <div class="project-card-thumb" style="background:#0D1117;">
+            <!-- <img src="../assets/images/project-chatroom-cover.jpg" alt="Java Chatroom" /> -->
+            <div class="project-card-thumb-placeholder">
+              <span style="font-size:11px;">Add cover image<br>assets/images/project-chatroom-cover.jpg</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-category">Software Engineering</span>
+            <span class="project-card-title">Java Chatroom</span>
+            <span class="project-card-desc">A multi-user client-server chat application built with Java socket programming.</span>
+            <div class="tag-list" style="margin-top:8px;">
+              <span class="tag">Java</span><span class="tag">Sockets</span><span class="tag">OOP</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">Jan 2026</span>
+              <span class="project-card-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/flower-image-classifier.html" data-category="Machine Learning">
+          <div class="project-card-thumb" style="background:#1a2a1a;">
+            <!-- <img src="../assets/images/project-classifier-cover.jpg" alt="Flower Image Classifier" /> -->
+            <div class="project-card-thumb-placeholder">
+              <span style="font-size:11px;">Add cover image<br>assets/images/project-classifier-cover.jpg</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-category">Machine Learning</span>
+            <span class="project-card-title">Flower Image Classifier</span>
+            <span class="project-card-desc">A deep learning model using PyTorch and transfer learning to classify flower species.</span>
+            <div class="tag-list" style="margin-top:8px;">
+              <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Deep Learning</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">Feb 2025</span>
+              <span class="project-card-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (f === 'all' || card.dataset.category === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

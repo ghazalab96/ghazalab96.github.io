@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes — Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../css/base.css?v=2" />
+  <link rel="stylesheet" href="../css/layout.css?v=6" />
+  <link rel="stylesheet" href="../css/components.css?v=2" />
+  <style>
+    .page-hero { padding: 56px 0 40px; }
+    .page-title { font-size: clamp(40px, 6vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+    .page-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 480px; line-height: 1.65; }
+
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { padding: 8px 18px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); cursor: pointer; transition: all var(--transition); }
+    .filter-btn:hover, .filter-btn.active { background: var(--nav-active-bg); color: var(--nav-active-text); border-color: var(--nav-active-bg); }
+
+    .note-list { display: flex; flex-direction: column; gap: 2px; padding-bottom: 80px; }
+
+    .note-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background var(--transition), padding var(--transition);
+      border-radius: var(--radius-sm);
+    }
+    .note-row:first-child { border-top: 1px solid var(--border); }
+    .note-row:hover { background: var(--bg-card); padding-left: 16px; padding-right: 16px; margin: 0 -16px; }
+
+    .note-thumb { width: 72px; height: 72px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .note-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .note-thumb-emoji { font-size: 26px; }
+    .note-thumb-code { font-size: 6px; color: #58A6FF; line-height: 1.4; padding: 4px; overflow: hidden; font-family: monospace; white-space: pre; }
+
+    .note-row-center { display: flex; flex-direction: column; gap: 4px; }
+    .note-topic { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .note-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+    .note-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; max-width: 520px; }
+    .note-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .note-arrow { font-size: 20px; color: var(--text-muted); flex-shrink: 0; transition: transform var(--transition), color var(--transition); }
+    .note-row:hover .note-arrow { transform: translateX(4px); color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .note-row { grid-template-columns: auto 1fr; }
+      .note-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../index.html">home</a>
+        <a href="work.html">work</a>
+        <a href="notes.html" class="active">notes</a>
+        <a href="about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-hero">
+        <p class="section-label">Writing</p>
+        <h1 class="page-title">Notes & ideas.</h1>
+        <p class="page-subtitle">Thoughts on software, data, systems, and the world between them.</p>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <!-- فیلترها خودکار از notes-data.js ساخته میشن -->
+      </div>
+
+      <div class="note-list" id="noteList">
+        <!-- نوت‌ها خودکار از notes-data.js رندر میشن -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/notes-data.js"></script>
+  <script>
+    const DEFAULT_CODE_THUMB = `class Ex {\n  int val;\n  sync void\n  set(int v){\n    this.val=v;\n  }\n}`;
+
+    function buildThumb(note) {
+      const bg = note.thumbBg || '#0D1117';
+      if (note.thumb) {
+        return `<div class="note-thumb" style="background:${bg};">
+          <img src="../${note.thumb}" alt="${note.title}" />
+        </div>`;
+      }
+      if (note.thumbEmoji) {
+        return `<div class="note-thumb" style="background:${bg};">
+          <span class="note-thumb-emoji">${note.thumbEmoji}</span>
+        </div>`;
+      }
+      return `<div class="note-thumb" style="background:${bg};">
+        <span class="note-thumb-code">${DEFAULT_CODE_THUMB}</span>
+      </div>`;
+    }
+
+    function renderNotes(filter) {
+      const list = document.getElementById('noteList');
+      const filtered = filter === 'all'
+        ? NOTES
+        : NOTES.filter(n => n.topicFilters.includes(filter));
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<p style="color:var(--text-muted);padding:40px 0;">No notes yet in this category.</p>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(note => `
+        <a class="note-row" href="${note.href}">
+          ${buildThumb(note)}
+          <div class="note-row-center">
+            <span class="note-topic">${note.topic}</span>
+            <span class="note-title">${note.title}</span>
+            <span class="note-desc">${note.desc}</span>
+            <span class="note-meta">${note.date} · ${note.readTime}</span>
+          </div>
+          <span class="note-arrow">→</span>
+        </a>
+      `).join('');
+    }
+
+    function buildFilters() {
+      const allFilters = new Set();
+      NOTES.forEach(n => n.topicFilters.forEach(f => allFilters.add(f)));
+      const bar = document.getElementById('filterBar');
+      allFilters.forEach(f => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.filter = f;
+        btn.textContent = f;
+        bar.appendChild(btn);
+      });
+    }
+
+    buildFilters();
+    renderNotes('all');
+
+    document.getElementById('filterBar').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderNotes(btn.dataset.filter);
+    });
+  </script>
+</body>
+</html>

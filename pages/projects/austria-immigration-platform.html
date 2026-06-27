@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austria Immigration Platform — Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../../css/base.css?v=2" />
+  <link rel="stylesheet" href="../../css/layout.css?v=6" />
+  <link rel="stylesheet" href="../../css/components.css?v=2" />
+  <style>
+    .project-page { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 32px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .project-header { padding: 56px 0 0; }
+    .project-category { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .project-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px; }
+    .project-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .project-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .project-meta-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .project-meta-value { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .project-links { display: flex; gap: 12px; margin-bottom: 40px; }
+    .project-link-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); transition: all var(--transition); }
+    .project-link-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+    /* Cover / gallery */
+    .project-cover { width: 100%; height: 400px; background: #1A1A2E; border-radius: var(--radius); overflow: hidden; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+    .project-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .project-cover-placeholder { color: rgba(255,255,255,0.3); font-size: 13px; text-align: center; line-height: 1.8; }
+
+    .project-gallery { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+    .gallery-img { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--border); overflow: hidden; cursor: zoom-in; }
+    .gallery-img img { width: 100%; height: auto; display: block; transition: opacity 0.2s; }
+    .gallery-img:hover img { opacity: 0.92; }
+
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; cursor: zoom-out; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 8px; object-fit: contain; }
+
+    /* Body */
+    .project-body { padding-bottom: 80px; }
+    .project-body h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .project-body h3 { font-size: 17px; font-weight: 700; margin: 28px 0 10px; }
+    .project-body p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; }
+    .project-body ul, .project-body ol { padding-left: 24px; margin-bottom: 18px; }
+    .project-body li { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
+    .project-body code { font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; }
+
+    .project-inline-img { width: 100%; border-radius: var(--radius-sm); margin: 24px 0; overflow: hidden; background: var(--bg-card-alt); border: 1px solid var(--border); }
+    .project-inline-img img { width: 100%; display: block; }
+    .project-inline-img-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+    .project-inline-img figcaption { font-size: 12px; color: var(--text-muted); text-align: center; padding: 8px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../../index.html">home</a>
+        <a href="../work.html" class="active">work</a>
+        <a href="../notes.html">notes</a>
+        <a href="../about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <div class="project-header">
+      <a href="../work.html" class="back-link">← All projects</a>
+      <p class="project-category">Full Stack Web Development</p>
+      <h1 class="project-title">Austria Immigration Platform</h1>
+
+      <div class="project-meta">
+        <div class="project-meta-item">
+          <span class="project-meta-label">Date</span>
+          <span class="project-meta-value">Jun 2026</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Type</span>
+          <span class="project-meta-value">University Project</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Status</span>
+          <span class="project-meta-value">Completed</span>
+        </div>
+      </div>
+
+      <div class="tag-list" style="margin-bottom: 24px;">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/ghazalab96/AIP-austria-immigration-platform" target="_blank" class="project-link-btn project-link-btn--primary">
+          View on GitHub ↗
+        </a>
+        <!-- <a href="#" target="_blank" class="project-link-btn">Live Demo ↗</a> -->
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+
+    <div class="project-body">
+
+      <h2>Overview</h2>
+      <p>
+        Developed as a second-semester university project, this full-stack web application aims to simplify the process of studying and relocating to Austria. The platform provides structured guidance on university applications, student visa procedures, and relocation requirements.
+      </p>
+
+      <h2>The Problem</h2>
+      <p>
+        Write about what problem this project solves. Who is it for? What pain point does it address?
+      </p>
+
+      <h2>What I Built</h2>
+      <p>
+        Describe the features and functionality. What can users do? What does the interface look like?
+      </p>
+
+      <div class="project-gallery">
+        <figure class="gallery-img">
+          <img src="../../assets/images/aip/AIP1.png" alt="AIP screenshot 1" />
+        </figure>
+        <figure class="gallery-img">
+          <img src="../../assets/images/aip/AIP2.png" alt="AIP screenshot 2" />
+        </figure>
+        <figure class="gallery-img">
+          <img src="../../assets/images/aip/AIP3.png" alt="AIP screenshot 3" />
+        </figure>
+      </div>
+
+      <video controls muted style="width:100%; border-radius:var(--radius); margin:16px 0 32px; display:block;">
+        <source src="../../assets/images/aip/AIPmovie.mov" type="video/mp4" />
+      </video>
+
+      <h2>Technical Details</h2>
+      <p>
+        Built with Node.js and Express.js on the backend, with vanilla JavaScript, HTML, and CSS on the frontend. Describe any interesting technical decisions or challenges here.
+      </p>
+      <ul>
+        <li>Describe a technical decision or challenge</li>
+        <li>Another interesting implementation detail</li>
+        <li>What you learned from this project</li>
+      </ul>
+
+      <h2>What I Learned</h2>
+      <p>
+        Write about your key takeaways from this project — technical skills, teamwork, project management, etc.
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery-img img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+      });
+    });
+    lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+  </script>
+</body>
+</html>
