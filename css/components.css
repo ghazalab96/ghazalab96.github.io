@@ -74,7 +74,7 @@
 /* ── Hero text ── */
 .hero-title {
   margin-top: 10px;
-  font-size: clamp(36px, 8vw, 90px);
+  font-size: clamp(12px, 8vw, 60px);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -82,6 +82,131 @@
 }
 
 .hero-title .accent { color: var(--accent); }
+
+/* ── Hero Stats ── */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.hero-stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* ── Hero CTAs ── */
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-hero--primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+}
+.btn-hero--primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(36,137,132,0.28);
+}
+
+.btn-hero--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+}
+.btn-hero--outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* ── CV Dropdown ── */
+.cv-dropdown {
+  position: relative;
+}
+
+.cv-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  z-index: 50;
+  min-width: 160px;
+}
+
+.cv-dropdown.open .cv-dropdown-menu { display: block; }
+
+.cv-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.cv-dropdown-item:hover { background: var(--accent-light); }
+
+.cv-lang {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
 
 .hero-subtitle {
   font-style: italic;
@@ -390,6 +515,12 @@ textarea.form-input {
   margin: 0;
 }
 
+@media (max-width: 800px) {
+  .card--github img {
+    display: none;
+  }
+}
+
 /* ════════════════════════════════
    RESPONSIVE
    ════════════════════════════════ */
@@ -437,8 +568,7 @@ textarea.form-input {
 
   /* GitHub card — عکس کوچیک‌تر */
   .card--github img {
-    height: 80% !important;
-    max-width: 45% !important;
+    display: none;
   }
 
   /* Focus chips — کوچیکتر */

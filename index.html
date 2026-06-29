@@ -46,9 +46,9 @@
         </div>
 
         <h1 class="hero-title">
-         Technology,<br>
-          <span class="accent">people</span>, and<br>
-          everything<br>
+         Technology,
+          <span class="accent">people</span><br>
+          and everything<br>
           in between.
         </h1>
 
@@ -56,6 +56,43 @@
           Computer Science student at Hochschule Campus Wien (University of Applied Sciences),
           exploring software, data, culture, and human systems.
         </p>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value">3</span>
+            <span class="hero-stat-label">Projects</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">2</span>
+            <span class="hero-stat-label">Semesters</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">Vienna</span>
+            <span class="hero-stat-label">AT</span>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="hero-ctas">
+          <a href="pages/work.html" class="btn-hero btn-hero--primary">View Projects →</a>
+
+          <div class="cv-dropdown">
+            <button class="btn-hero btn-hero--outline" onclick="this.parentElement.classList.toggle('open')">
+              Download CV ↓
+            </button>
+            <div class="cv-dropdown-menu">
+              <a href="assets/cv/cv-en.pdf" download class="cv-dropdown-item">
+                <span class="cv-lang">EN</span> English
+              </a>
+              <a href="assets/cv/cv-de.pdf" download class="cv-dropdown-item">
+                <span class="cv-lang">DE</span> Deutsch
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Right: Cards -->
@@ -121,11 +158,11 @@
     <section class="section container">
       <p class="section-label">Current Focus</p>
       <div class="focus-chips">
-        <span class="focus-chip"><span class="focus-chip-icon"></span> Software Engineering</span>
-        <span class="focus-chip"><span class="focus-chip-icon"></span> Data Science</span>
-        <span class="focus-chip"><span class="focus-chip-icon"></span> Cybersecurity</span>
-        <span class="focus-chip"><span class="focus-chip-icon"></span> Organizational Culture</span>
-        <span class="focus-chip"><span class="focus-chip-icon"></span> Cultural Anthropology</span>
+        <span class="focus-chip"><span class="focus-chip-icon"></span>Software Engineering</span>
+        <span class="focus-chip"><span class="focus-chip-icon"></span>Data Science</span>
+        <span class="focus-chip"><span class="focus-chip-icon"></span>Cybersecurity</span>
+        <span class="focus-chip"><span class="focus-chip-icon"></span>Organizational Culture</span>
+        <span class="focus-chip"><span class="focus-chip-icon"></span>Cultural Anthropology</span>
       </div>
     </section>
 
@@ -199,6 +236,14 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.cv-dropdown')) {
+        document.querySelectorAll('.cv-dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+  </script>
 
   <script src="js/notes-data.js"></script>
   <script>
