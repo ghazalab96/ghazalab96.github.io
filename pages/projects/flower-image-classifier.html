@@ -126,13 +126,13 @@
       </p>
       <ul>
         <li><code>train.py flowers/ --arch vgg16 --epochs 5 --gpu</code> — trains on any ImageFolder dataset and saves a checkpoint</li>
-        <li><code>predict.py image.jpg checkpoint.pth --top_k 5 --category_names cat_to_name.json</code> — loads a checkpoint and prints ranked predictions</li>
+        <li><code>predict.py image.jpg checkpoint.pth --top_k 5 --category_names cat_to_name.json</code> loads a checkpoint and prints ranked predictions</li>
       </ul>
 
       <h2>What I Learned</h2>
       <ul>
         <li>The full PyTorch training loop: ImageFolder → DataLoader → forward pass → loss → backward → optimizer step</li>
-        <li>Why transfer learning works: the pretrained network already detects edges, textures, and shapes — fine-tuning just maps those features to new classes</li>
+        <li>Why transfer learning works: the pretrained network already detects edges, textures, and shapes fine-tuning just maps those features to new classes</li>
         <li>How to save and restore model checkpoints including the class-to-index mapping</li>
         <li>Converting a Jupyter notebook into reusable CLI scripts with <code>argparse</code></li>
         <li>The difference between training accuracy and validation accuracy, and why validation is the number that matters</li>
