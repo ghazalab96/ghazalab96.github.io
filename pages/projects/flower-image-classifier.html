@@ -94,21 +94,12 @@
     </div>
 
     <div class="project-cover">
-      <!-- <img src="../../assets/images/project-classifier-cover.jpg" alt="Flower Image Classifier" /> -->
-      <div class="project-cover-placeholder">
-        Cover image<br>
-        <span style="font-size:11px;">Add file: assets/images/project-classifier-cover.jpg</span>
-      </div>
+      <img src="../../assets/images/classifier-flowers.png" alt="Flower dataset samples" />
     </div>
 
     <div class="project-gallery">
-      <figure class="gallery-img">
-        <!-- <img src="../../assets/images/project-classifier-1.jpg" alt="Screenshot 1" /> -->
-        <div class="gallery-img-placeholder">assets/images/project-classifier-1.jpg</div>
-      </figure>
-      <figure class="gallery-img">
-        <!-- <img src="../../assets/images/project-classifier-2.jpg" alt="Screenshot 2" /> -->
-        <div class="gallery-img-placeholder">assets/images/project-classifier-2.jpg</div>
+      <figure class="gallery-img" style="aspect-ratio: unset;">
+        <img src="../../assets/images/classifier-prediction.png" alt="Model prediction output" style="object-fit: contain; background: white;" />
       </figure>
     </div>
 
@@ -144,6 +135,18 @@
         <li><code>predict.py</code>: loads a saved checkpoint and predicts the top-K most likely flower classes for any input image</li>
         <li><code>cat_to_name.json</code>: maps category indices to human-readable flower names</li>
       </ul>
+
+      <h2>Results</h2>
+      <p>
+        The model correctly identifies the flower species and returns a ranked list of top-5 predictions
+        with confidence scores. The example below shows the model classifying a stemless gentian with
+        high confidence, with visually similar blue and purple flower species ranked below it.
+      </p>
+
+      <figure class="project-inline-img">
+        <img src="../../assets/images/classifier-prediction.png" alt="Top-5 prediction output" style="background: white;" />
+        <figcaption>Top-5 predictions for a test image — stemless gentian correctly identified as the top class</figcaption>
+      </figure>
 
       <h2>What I Learned</h2>
       <p>
