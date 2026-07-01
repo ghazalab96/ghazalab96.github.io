@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flower Image Classifier — Ghazal Arbabzadeh</title>
+  <title>Flower Image Classifier | Ghazal Arbabzadeh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
@@ -121,13 +121,13 @@
 
       <h2>Approach</h2>
       <p>
-        Instead of training a neural network from scratch — which would require massive amounts of data
-        and compute — I used <strong>transfer learning</strong>: starting with a large pretrained CNN
+        Instead of training a neural network from scratch (which would require massive amounts of data
+        and compute), I used <strong>transfer learning</strong>: starting with a large pretrained CNN
         (VGG16, trained on ImageNet) and replacing only its final classifier layers with a new network
         trained on the flower dataset.
       </p>
       <ul>
-        <li><strong>Pretrained backbone:</strong> VGG16 — weights frozen, used as a feature extractor</li>
+        <li><strong>Pretrained backbone:</strong> VGG16, weights frozen, used as a feature extractor</li>
         <li><strong>Custom classifier:</strong> new fully-connected layers trained on 102 flower categories</li>
         <li><strong>Data augmentation:</strong> random horizontal flips, rotations, and color jitter during training to reduce overfitting</li>
         <li><strong>Normalization:</strong> input images normalized to ImageNet mean and std so the pretrained weights apply correctly</li>
@@ -136,19 +136,19 @@
 
       <h2>Command-Line Interface</h2>
       <p>
-        The project was extended into a fully usable CLI tool — not just a notebook. You can train a model
+        The project was extended into a fully usable CLI tool, not just a notebook. You can train a model
         on any dataset and run predictions from the terminal:
       </p>
       <ul>
-        <li><code>train.py</code> — trains the model, saves a checkpoint, supports <code>--arch</code>, <code>--epochs</code>, <code>--learning_rate</code> flags</li>
-        <li><code>predict.py</code> — loads a saved checkpoint and predicts the top-K most likely flower classes for any input image</li>
-        <li><code>cat_to_name.json</code> — maps category indices to human-readable flower names</li>
+        <li><code>train.py</code>: trains the model, saves a checkpoint, supports <code>--arch</code>, <code>--epochs</code>, <code>--learning_rate</code> flags</li>
+        <li><code>predict.py</code>: loads a saved checkpoint and predicts the top-K most likely flower classes for any input image</li>
+        <li><code>cat_to_name.json</code>: maps category indices to human-readable flower names</li>
       </ul>
 
       <h2>What I Learned</h2>
       <p>
         This was my introduction to deep learning in practice. The most valuable insight was understanding
-        why transfer learning works — the pretrained model already knows how to detect edges, textures,
+        why transfer learning works: the pretrained model already knows how to detect edges, textures,
         and shapes. Fine-tuning just teaches it what those patterns mean in a new context.
       </p>
       <ul>
@@ -156,7 +156,7 @@
         <li>Why transfer learning is the standard starting point for image classification tasks</li>
         <li>How to save and reload model checkpoints for reuse</li>
         <li>Turning a Jupyter notebook into a reusable command-line tool with <code>argparse</code></li>
-        <li>The difference between training accuracy and validation accuracy — and why validation is what actually matters</li>
+        <li>The difference between training accuracy and validation accuracy, and why validation is what actually matters</li>
       </ul>
 
     </div>

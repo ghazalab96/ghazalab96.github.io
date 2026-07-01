@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Austria Immigration Platform — Ghazal Arbabzadeh</title>
+  <title>Austria Immigration Platform | Ghazal Arbabzadeh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
@@ -123,13 +123,13 @@
 
       <h2>The Problem</h2>
       <p>
-        Moving to Austria as an international student means navigating a maze of bureaucracy — scattered across
+        Moving to Austria as an international student means navigating a maze of bureaucracy, scattered across
         multiple government websites, in German, with requirements that change depending on your country of origin.
         There's no single place that guides you through the full process: from university application to visa
         to finding housing.
       </p>
       <p>
-        This platform was built for people going through exactly that process — a central place to submit
+        This platform was built for people going through exactly that process: a central place to submit
         and track immigration-related requests, without having to start from zero every time.
       </p>
 
@@ -141,7 +141,7 @@
       <ul>
         <li>User registration and login with session-based authentication</li>
         <li>Create, view, update, and delete immigration requests (full CRUD)</li>
-        <li>Dynamic status tracking — requests reflect their current state in real time</li>
+        <li>Dynamic status tracking: requests reflect their current state in real time</li>
         <li>Error handling with clear feedback messages for the user</li>
         <li>Separate frontend and backend, communicating through a REST API</li>
       </ul>
@@ -166,11 +166,11 @@
       <p>
         The project is split into a <code>frontend</code> and <code>backend</code> folder.
         The backend is a Node.js + Express.js server that handles all API routes, authentication logic,
-        and request processing. The frontend is built with vanilla JavaScript, HTML, and CSS — no frameworks.
+        and request processing. The frontend is built with vanilla JavaScript, HTML, and CSS (no frameworks).
       </p>
       <ul>
         <li>REST API with endpoints for auth, request creation, updates, and deletion</li>
-        <li>Session-based authentication — user state is preserved across page loads</li>
+        <li>Session-based authentication: user state is preserved across page loads</li>
         <li>Structured JSON responses from the backend, parsed and rendered dynamically in the frontend</li>
         <li>Form validation and error feedback on both frontend and backend</li>
         <li>Clean separation of concerns: API logic lives in the backend, UI logic in the frontend</li>
@@ -178,13 +178,13 @@
 
       <h2>What I Learned</h2>
       <p>
-        This was my first full-stack project — and the biggest thing I learned was understanding
+        This was my first full-stack project, and the biggest thing I learned was understanding
         how data actually flows through an application. Seeing a form submission travel from the browser,
         hit an Express route, get processed, and come back as a JSON response made everything click.
       </p>
       <ul>
         <li>How to design and connect a REST API between a frontend and backend</li>
-        <li>Session-based authentication from scratch — no library magic</li>
+        <li>Session-based authentication from scratch, without relying on any auth library</li>
         <li>Debugging across two different layers (frontend JS and backend Node.js) simultaneously</li>
         <li>Structuring a project with separate concerns from the start</li>
         <li>Git workflow for a multi-file, evolving project</li>

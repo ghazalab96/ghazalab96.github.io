@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Java Chatroom — Ghazal Arbabzadeh</title>
+  <title>Java Chatroom | Ghazal Arbabzadeh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
@@ -107,7 +107,7 @@
         The application follows a classic client-server model. The server starts listening on a port,
         and each new client that connects gets its own dedicated <code>ClientHandler</code> thread.
         A <code>ClientManager</code> keeps track of all active connections and is responsible for
-        broadcasting messages — when one client sends a message, the manager forwards it to every
+        broadcasting messages: when one client sends a message, the manager forwards it to every
         other connected client.
       </p>
       <p>
@@ -118,7 +118,7 @@
       <h2>What I Built</h2>
       <ul>
         <li>A multi-user chat server that handles concurrent client connections</li>
-        <li>Message broadcasting — all connected users receive every message in real time</li>
+        <li>Message broadcasting: all connected users receive every message in real time</li>
         <li>A client application with a chat interface for sending and viewing messages</li>
         <li>Clean separation into <code>server</code>, <code>client</code>, and <code>common</code> packages</li>
       </ul>
@@ -132,10 +132,10 @@
 
       <h2>Technical Details</h2>
       <ul>
-        <li><strong>ServerSocket / Socket</strong> — the server blocks on <code>accept()</code> and spins up a new thread for every incoming connection</li>
-        <li><strong>Multithreading</strong> — each <code>ClientHandler</code> runs on its own thread, so multiple users can chat simultaneously without blocking each other</li>
-        <li><strong>ClientManager</strong> — maintains the list of active handlers and iterates over them to broadcast each incoming message</li>
-        <li><strong>Gradle</strong> — used as the build system to manage dependencies and run the application</li>
+        <li><strong>ServerSocket / Socket:</strong> the server blocks on <code>accept()</code> and spins up a new thread for every incoming connection</li>
+        <li><strong>Multithreading:</strong> each <code>ClientHandler</code> runs on its own thread, so multiple users can chat simultaneously without blocking each other</li>
+        <li><strong>ClientManager:</strong> maintains the list of active handlers and iterates over them to broadcast each incoming message</li>
+        <li><strong>Gradle:</strong> used as the build system to manage dependencies and run the application</li>
         <li>Organized into three packages: <code>server</code>, <code>client</code> (with controller and network sub-packages), and <code>common</code></li>
       </ul>
 
@@ -143,11 +143,11 @@
       <p>
         This was my first real experience with network programming and concurrency.
         The hardest part was thinking about what happens when multiple threads try to access
-        the same list of clients at the same time — and making sure messages don't get lost or
+        the same list of clients at the same time, and making sure messages don't get lost or
         sent to the wrong person.
       </p>
       <ul>
-        <li>Java socket programming — how TCP connections work at the code level</li>
+        <li>Java socket programming: how TCP connections work at the code level</li>
         <li>Multithreading and why thread safety matters in a shared-state system</li>
         <li>Designing a clean package structure for a multi-component application</li>
         <li>The difference between building something that works and building something that stays stable under concurrent load</li>
