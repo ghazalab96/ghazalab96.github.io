@@ -44,6 +44,8 @@
     .project-inline-img img { width: 100%; display: block; }
     .project-inline-img-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
     .project-inline-img figcaption { font-size: 12px; color: var(--text-muted); text-align: center; padding: 8px; }
+    .notebook-embed-wrapper { width: 100%; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-top: 16px; }
+    .notebook-embed { width: 100%; height: 80vh; border: none; display: block; }
   </style>
 </head>
 <body>
@@ -93,74 +95,59 @@
       </div>
     </div>
 
-    <div class="project-cover">
-      <img src="../../assets/images/classifier-flowers.png" alt="Flower dataset samples" />
-    </div>
-
-    <div class="project-gallery">
-      <figure class="gallery-img" style="aspect-ratio: unset;">
-        <img src="../../assets/images/classifier-prediction.png" alt="Model prediction output" style="object-fit: contain; background: white;" />
-      </figure>
-    </div>
-
     <div class="project-body">
 
       <h2>Overview</h2>
       <p>
-        A deep learning model trained to classify flower species using PyTorch and transfer learning. Built as part of the Udacity AI Programming with Python Nanodegree. The model uses a pre-trained convolutional neural network (CNN) and fine-tunes it on a flower dataset.
+        A deep learning image classifier that identifies 102 species of flowers, built as the capstone
+        project of the Udacity AI Programming with Python Nanodegree. The model uses VGG16 pretrained
+        on ImageNet as a feature extractor, with a custom classifier trained on the
+        <a href="https://www.robots.ox.ac.uk/~vgg/data/flowers/102/" target="_blank">Oxford 102 Flower Dataset</a>.
       </p>
 
       <h2>Approach</h2>
       <p>
-        Instead of training a neural network from scratch (which would require massive amounts of data
-        and compute), I used <strong>transfer learning</strong>: starting with a large pretrained CNN
-        (VGG16, trained on ImageNet) and replacing only its final classifier layers with a new network
-        trained on the flower dataset.
+        Instead of training a neural network from scratch, I used <strong>transfer learning</strong>:
+        the convolutional layers of VGG16 are frozen and act as a fixed feature extractor, while only
+        the final classifier layers are trained on the flower dataset. This makes training fast and
+        achieves strong accuracy even on a relatively small dataset.
       </p>
       <ul>
-        <li><strong>Pretrained backbone:</strong> VGG16, weights frozen, used as a feature extractor</li>
-        <li><strong>Custom classifier:</strong> new fully-connected layers trained on 102 flower categories</li>
-        <li><strong>Data augmentation:</strong> random horizontal flips, rotations, and color jitter during training to reduce overfitting</li>
-        <li><strong>Normalization:</strong> input images normalized to ImageNet mean and std so the pretrained weights apply correctly</li>
-        <li><strong>Optimizer:</strong> Adam with a learning rate scheduler</li>
+        <li><strong>Backbone:</strong> VGG16 pretrained on ImageNet, all convolutional weights frozen</li>
+        <li><strong>Custom classifier:</strong> Linear(25088→512) → ReLU → Dropout(0.2) → Linear(512→102) → LogSoftmax</li>
+        <li><strong>Data augmentation:</strong> random resized crop and horizontal flip during training to reduce overfitting</li>
+        <li><strong>Normalization:</strong> ImageNet mean and std ([0.485, 0.456, 0.406] / [0.229, 0.224, 0.225])</li>
+        <li><strong>Loss / Optimizer:</strong> NLLLoss with Adam (lr=0.001), trained for 5 epochs on GPU</li>
       </ul>
 
       <h2>Command-Line Interface</h2>
       <p>
-        The project was extended into a fully usable CLI tool, not just a notebook. You can train a model
-        on any dataset and run predictions from the terminal:
+        Beyond the notebook, the project ships as two standalone CLI scripts:
       </p>
       <ul>
-        <li><code>train.py</code>: trains the model, saves a checkpoint, supports <code>--arch</code>, <code>--epochs</code>, <code>--learning_rate</code> flags</li>
-        <li><code>predict.py</code>: loads a saved checkpoint and predicts the top-K most likely flower classes for any input image</li>
-        <li><code>cat_to_name.json</code>: maps category indices to human-readable flower names</li>
+        <li><code>train.py flowers/ --arch vgg16 --epochs 5 --gpu</code> — trains on any ImageFolder dataset and saves a checkpoint</li>
+        <li><code>predict.py image.jpg checkpoint.pth --top_k 5 --category_names cat_to_name.json</code> — loads a checkpoint and prints ranked predictions</li>
       </ul>
-
-      <h2>Results</h2>
-      <p>
-        The model correctly identifies the flower species and returns a ranked list of top-5 predictions
-        with confidence scores. The example below shows the model classifying a stemless gentian with
-        high confidence, with visually similar blue and purple flower species ranked below it.
-      </p>
-
-      <figure class="project-inline-img">
-        <img src="../../assets/images/classifier-prediction.png" alt="Top-5 prediction output" style="background: white;" />
-        <figcaption>Top-5 predictions for a test image — stemless gentian correctly identified as the top class</figcaption>
-      </figure>
 
       <h2>What I Learned</h2>
-      <p>
-        This was my introduction to deep learning in practice. The most valuable insight was understanding
-        why transfer learning works: the pretrained model already knows how to detect edges, textures,
-        and shapes. Fine-tuning just teaches it what those patterns mean in a new context.
-      </p>
       <ul>
-        <li>The full PyTorch workflow: datasets → DataLoader → model → loss → optimizer → training loop</li>
-        <li>Why transfer learning is the standard starting point for image classification tasks</li>
-        <li>How to save and reload model checkpoints for reuse</li>
-        <li>Turning a Jupyter notebook into a reusable command-line tool with <code>argparse</code></li>
-        <li>The difference between training accuracy and validation accuracy, and why validation is what actually matters</li>
+        <li>The full PyTorch training loop: ImageFolder → DataLoader → forward pass → loss → backward → optimizer step</li>
+        <li>Why transfer learning works: the pretrained network already detects edges, textures, and shapes — fine-tuning just maps those features to new classes</li>
+        <li>How to save and restore model checkpoints including the class-to-index mapping</li>
+        <li>Converting a Jupyter notebook into reusable CLI scripts with <code>argparse</code></li>
+        <li>The difference between training accuracy and validation accuracy, and why validation is the number that matters</li>
       </ul>
+
+      <h2>Notebook</h2>
+      <p>Full implementation below, from data loading through inference:</p>
+      <div class="notebook-embed-wrapper">
+        <iframe
+          src="../../assets/flower-classifier-notebook.html"
+          title="Flower Image Classifier Notebook"
+          class="notebook-embed"
+          loading="lazy"
+        ></iframe>
+      </div>
 
     </div>
   </main>
