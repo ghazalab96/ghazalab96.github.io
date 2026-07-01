@@ -104,28 +104,54 @@
 
       <h2>How It Works</h2>
       <p>
-        Describe the architecture — how does the server manage multiple clients? How do messages get routed?
+        The application follows a classic client-server model. The server starts listening on a port,
+        and each new client that connects gets its own dedicated <code>ClientHandler</code> thread.
+        A <code>ClientManager</code> keeps track of all active connections and is responsible for
+        broadcasting messages — when one client sends a message, the manager forwards it to every
+        other connected client.
+      </p>
+      <p>
+        The client side runs as a separate application with a UI for sending and receiving messages,
+        and a <code>network</code> package that handles the socket connection to the server.
       </p>
 
-      <h2>Technical Details</h2>
+      <h2>What I Built</h2>
       <ul>
-        <li>Describe interesting technical challenges</li>
-        <li>How you handled concurrency</li>
-        <li>Socket programming approach</li>
+        <li>A multi-user chat server that handles concurrent client connections</li>
+        <li>Message broadcasting — all connected users receive every message in real time</li>
+        <li>A client application with a chat interface for sending and viewing messages</li>
+        <li>Clean separation into <code>server</code>, <code>client</code>, and <code>common</code> packages</li>
       </ul>
 
-      <h2>What I Built</h2>
-      <p>Describe the features and functionality.</p>
-
       <img src="../../assets/images/chatroom/chatroom1.png" alt="Java Chatroom screenshot"
-        style="width:100%; border-radius:var(--radius-sm); border:1px solid var(--border); margin:16px 0; display:block;" />
+        style="width:100%; border-radius:var(--radius-sm); border:1px solid var(--border); margin:24px 0 16px; display:block;" />
 
       <video controls muted style="width:100%; border-radius:var(--radius); margin:16px 0 32px; display:block;">
         <source src="../../assets/images/chatroom/chatroom-movie.mov" type="video/mp4" />
       </video>
 
+      <h2>Technical Details</h2>
+      <ul>
+        <li><strong>ServerSocket / Socket</strong> — the server blocks on <code>accept()</code> and spins up a new thread for every incoming connection</li>
+        <li><strong>Multithreading</strong> — each <code>ClientHandler</code> runs on its own thread, so multiple users can chat simultaneously without blocking each other</li>
+        <li><strong>ClientManager</strong> — maintains the list of active handlers and iterates over them to broadcast each incoming message</li>
+        <li><strong>Gradle</strong> — used as the build system to manage dependencies and run the application</li>
+        <li>Organized into three packages: <code>server</code>, <code>client</code> (with controller and network sub-packages), and <code>common</code></li>
+      </ul>
+
       <h2>What I Learned</h2>
-      <p>Write about your key takeaways from this project.</p>
+      <p>
+        This was my first real experience with network programming and concurrency.
+        The hardest part was thinking about what happens when multiple threads try to access
+        the same list of clients at the same time — and making sure messages don't get lost or
+        sent to the wrong person.
+      </p>
+      <ul>
+        <li>Java socket programming — how TCP connections work at the code level</li>
+        <li>Multithreading and why thread safety matters in a shared-state system</li>
+        <li>Designing a clean package structure for a multi-component application</li>
+        <li>The difference between building something that works and building something that stays stable under concurrent load</li>
+      </ul>
 
     </div>
   </main>
