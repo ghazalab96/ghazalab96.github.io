@@ -79,19 +79,7 @@
         <div class="hero-ctas">
           <a href="pages/work.html" class="btn-hero btn-hero--primary">View Projects →</a>
 
-          <div class="cv-dropdown">
-            <button class="btn-hero btn-hero--outline" onclick="this.parentElement.classList.toggle('open')">
-              Download CV ↓
-            </button>
-            <div class="cv-dropdown-menu">
-              <a href="assets/cv/cv-en.pdf" download class="cv-dropdown-item">
-                <span class="cv-lang">EN</span> English
-              </a>
-              <a href="assets/cv/cv-de.pdf" download class="cv-dropdown-item">
-                <span class="cv-lang">DE</span> Deutsch
-              </a>
-            </div>
-          </div>
+          <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank" class="btn-hero btn-hero--outline">Let's connect on LinkedIn →</a>
         </div>
       </div>
 
@@ -237,15 +225,7 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.cv-dropdown')) {
-        document.querySelectorAll('.cv-dropdown.open').forEach(d => d.classList.remove('open'));
-      }
-    });
-  </script>
-
-  <script src="js/notes-data.js"></script>
+<script src="js/notes-data.js"></script>
   <script>
     const latest = NOTES[0];
     if (latest) {
