@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Najafian MD — Medical Practice Website | Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../../css/base.css?v=2" />
+  <link rel="stylesheet" href="../../css/layout.css?v=7" />
+  <link rel="stylesheet" href="../../css/components.css?v=4" />
+  <style>
+    .project-page { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 32px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .project-header { padding: 56px 0 0; }
+    .project-category { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .project-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px; }
+    .project-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .project-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .project-meta-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .project-meta-value { font-size: 13px; font-weight: 500; }
+    .project-links { display: flex; gap: 12px; margin-bottom: 40px; }
+    .project-link-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); transition: all var(--transition); }
+    .project-link-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .project-body { padding-bottom: 80px; }
+    .project-body h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .project-body p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; }
+    .project-body ul { padding-left: 24px; margin-bottom: 18px; }
+    .project-body li { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
+    .project-body code { font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; }
+    .project-cover { width: 100%; height: 360px; background: #0a1628; border-radius: var(--radius); overflow: hidden; margin-bottom: 40px; display: flex; align-items: center; justify-content: center; }
+    .project-cover-inner { text-align: center; color: rgba(255,255,255,0.5); }
+    .project-cover-inner span { font-size: 32px; font-weight: 700; display: block; margin-bottom: 8px; letter-spacing: -0.02em; color: rgba(255,255,255,0.8); }
+    .project-cover-inner small { font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../../index.html">home</a>
+        <a href="../work.html" class="active">work</a>
+        <a href="../notes.html">notes</a>
+        <a href="../about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <div class="project-header">
+      <a href="../work.html" class="back-link">← All projects</a>
+      <p class="project-category">Freelance / Full Stack</p>
+      <h1 class="project-title">Najafian MD — Medical Practice Website</h1>
+
+      <div class="project-meta">
+        <div class="project-meta-item">
+          <span class="project-meta-label">Date</span>
+          <span class="project-meta-value">Oct 2026</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Type</span>
+          <span class="project-meta-value">Freelance</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Status</span>
+          <span class="project-meta-value">Live</span>
+        </div>
+      </div>
+
+      <div class="tag-list" style="margin-bottom: 24px;">
+        <span class="tag">Astro</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Sveltia CMS</span>
+        <span class="tag">WCAG 2.2</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://najafianmd.com" target="_blank" class="project-link-btn project-link-btn--primary">Visit Live Site ↗</a>
+      </div>
+    </div>
+
+    <div class="project-cover">
+      <div class="project-cover-inner">
+        <span>najafianmd.com</span>
+        <small>Medical Practice · Vienna</small>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>Overview</h2>
+      <p>
+        A freelance project to redesign and migrate a medical practice website for Dr. Najafian in Vienna.
+        The original site was built on Squarespace — which was expensive, slow, and difficult for the client
+        to maintain. I rebuilt it from scratch using Astro, moving 81 pages off Squarespace to a modern
+        static stack with a headless CMS, Cloudflare security, and full WCAG 2.2 AA accessibility compliance.
+      </p>
+
+      <h2>The Problem</h2>
+      <p>
+        The existing Squarespace site had three core issues: monthly subscription costs that added up over time,
+        performance problems on mobile, and no straightforward way for the clinic staff to update content without
+        touching code or paying for Squarespace's editor tier. The client needed something they could own outright
+        and update themselves.
+      </p>
+
+      <h2>Technical Stack</h2>
+      <ul>
+        <li><strong>Astro:</strong> Static site generator that outputs zero-JS HTML by default, resulting in fast load times and excellent Core Web Vitals scores</li>
+        <li><strong>TypeScript:</strong> Used throughout for type safety in components, content schemas, and utility functions</li>
+        <li><strong>Sveltia CMS:</strong> Git-based headless CMS that lets the client edit content directly from a browser UI without touching code — changes commit to the repo and trigger a deploy automatically</li>
+        <li><strong>Cloudflare:</strong> DNS, CDN, DDoS protection, and Web Application Firewall rules configured for a healthcare context</li>
+        <li><strong>Serverless forms:</strong> Contact and appointment request forms handled via serverless functions — no backend server required</li>
+      </ul>
+
+      <h2>Accessibility</h2>
+      <p>
+        Medical websites have a wide audience including elderly users and people with disabilities.
+        I implemented WCAG 2.2 AA compliance throughout: proper heading hierarchy, sufficient color contrast,
+        keyboard-navigable components, skip-to-content links, and meaningful alt text on all images.
+        The site passes automated accessibility audits and was manually tested with screen readers.
+      </p>
+
+      <h2>Migration</h2>
+      <p>
+        Migrating 81 pages meant mapping content from Squarespace's export format to Astro's content
+        collections, preserving URL structure for SEO, and setting up 301 redirects for pages that changed
+        paths. The migration was done with zero downtime using a staged Cloudflare deployment.
+      </p>
+
+      <h2>What I Learned</h2>
+      <ul>
+        <li>How to scope and deliver a freelance project end-to-end, from initial brief to production handoff</li>
+        <li>Astro's content collections and island architecture for content-heavy sites</li>
+        <li>Cloudflare configuration for a security-conscious deployment context</li>
+        <li>The practical tradeoffs between self-hosted CMS options for non-technical clients</li>
+        <li>WCAG 2.2 accessibility standards and how to audit against them systematically</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

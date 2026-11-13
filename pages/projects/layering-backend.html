@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layering Backend Applications | Ghazal Arbabzadeh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/variables.css?v=3" />
+  <link rel="stylesheet" href="../../css/base.css?v=2" />
+  <link rel="stylesheet" href="../../css/layout.css?v=7" />
+  <link rel="stylesheet" href="../../css/components.css?v=4" />
+  <style>
+    .project-page { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); margin-bottom: 32px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .project-header { padding: 56px 0 0; }
+    .project-category { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .project-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px; }
+    .project-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .project-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .project-meta-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .project-meta-value { font-size: 13px; font-weight: 500; }
+    .project-links { display: flex; gap: 12px; margin-bottom: 40px; }
+    .project-link-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); transition: all var(--transition); }
+    .project-link-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .project-link-btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .project-body { padding-bottom: 80px; }
+    .project-body h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 14px; }
+    .project-body p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; }
+    .project-body ul { padding-left: 24px; margin-bottom: 18px; }
+    .project-body li { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 6px; }
+    .project-body code { font-family: 'Menlo', 'Monaco', monospace; font-size: 13px; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; }
+    .arch-diagram { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin: 24px 0 32px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .arch-layer { width: 100%; max-width: 480px; padding: 14px 20px; border-radius: 8px; text-align: center; font-size: 14px; font-weight: 600; }
+    .arch-layer--frontend { background: rgba(36,137,132,0.15); border: 1px solid rgba(36,137,132,0.4); color: var(--accent); }
+    .arch-layer--api { background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #818CF8; }
+    .arch-layer--service { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #F59E0B; }
+    .arch-layer--data { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #F87171; }
+    .arch-arrow { font-size: 20px; color: var(--text-muted); line-height: 1; padding: 4px 0; }
+    .arch-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 400; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">Ghazal Arbabzadeh</a>
+      <nav class="nav">
+        <a href="../../index.html">home</a>
+        <a href="../work.html" class="active">work</a>
+        <a href="../notes.html">notes</a>
+        <a href="../about.html">about</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <div class="project-header">
+      <a href="../work.html" class="back-link">← All projects</a>
+      <p class="project-category">Software Engineering</p>
+      <h1 class="project-title">Layering Backend Applications</h1>
+
+      <div class="project-meta">
+        <div class="project-meta-item">
+          <span class="project-meta-label">Date</span>
+          <span class="project-meta-value">Feb 2025 – Jun 2026</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Type</span>
+          <span class="project-meta-value">University Project</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Course</span>
+          <span class="project-meta-value">Advanced Java, 2nd Semester</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Status</span>
+          <span class="project-meta-value">Completed</span>
+        </div>
+      </div>
+
+      <div class="tag-list" style="margin-bottom: 24px;">
+        <span class="tag">Java</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">Angular</span>
+        <span class="tag">JDBC</span>
+        <span class="tag">SQL</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Postman</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/ghazalab96" target="_blank" class="project-link-btn project-link-btn--primary">View on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>Overview</h2>
+      <p>
+        A full-stack application built as a second-semester university project in the Advanced Java course at
+        FH Campus Wien. The project demonstrates layered architecture — the classic separation of concerns
+        across presentation, business logic, and data access layers — implemented with a Java Spring Boot
+        backend connected to a relational database, and an Angular frontend consuming RESTful API endpoints.
+      </p>
+
+      <h2>Architecture</h2>
+      <p>The application is organized into three distinct layers, each with a single responsibility:</p>
+
+      <div class="arch-diagram">
+        <div class="arch-layer arch-layer--frontend">
+          Presentation Layer
+          <div class="arch-label">Angular · TypeScript · HTTP Client</div>
+        </div>
+        <div class="arch-arrow">↕</div>
+        <div class="arch-layer arch-layer--api">
+          Business Logic Layer
+          <div class="arch-label">Spring Boot · REST Controllers · Service classes</div>
+        </div>
+        <div class="arch-arrow">↕</div>
+        <div class="arch-layer arch-layer--data">
+          Data Access Layer
+          <div class="arch-label">JDBC · SQL · Repository pattern</div>
+        </div>
+      </div>
+
+      <h2>Backend</h2>
+      <p>
+        The backend is a Spring Boot application exposing RESTful API endpoints. Business logic lives in
+        service classes, keeping the controllers thin and the data access layer isolated. Database connectivity
+        is handled via JDBC with plain SQL queries — no ORM — which made the data access layer transparent
+        and helped me understand what queries were actually being executed.
+      </p>
+      <ul>
+        <li><strong>Spring Boot:</strong> Application framework, dependency injection, and REST controller setup</li>
+        <li><strong>REST API endpoints:</strong> CRUD operations tested and documented using Postman</li>
+        <li><strong>JDBC:</strong> Direct database connectivity with parameterized queries to prevent SQL injection</li>
+        <li><strong>SQL:</strong> Relational schema design, queries, and data modeling</li>
+      </ul>
+
+      <h2>Frontend</h2>
+      <p>
+        The Angular frontend consumes the backend API via Angular's HTTP Client. Components are organized
+        around the data model, with services handling API calls and passing data down to presentational components.
+      </p>
+
+      <h2>What I Learned</h2>
+      <ul>
+        <li>Why layered architecture matters: changing the database layer didn't require touching the business logic, and vice versa</li>
+        <li>How Spring Boot's dependency injection works in practice, not just in theory</li>
+        <li>The full REST request/response cycle: routing, serialization, error handling, and status codes</li>
+        <li>How to use Postman to test and document an API before building the frontend</li>
+        <li>JDBC vs. ORM tradeoffs — writing raw SQL made the data layer clearer but more verbose</li>
+        <li>Connecting an Angular frontend to a Java backend for the first time</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 2026 Ghazal Arbabzadeh</p>
+      <div class="footer-links">
+        <a href="https://github.com/ghazalab96" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/" target="_blank">LinkedIn</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
