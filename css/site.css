@@ -30,8 +30,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 .hero{max-width:1100px;margin:0 auto;padding:24px 24px 0;text-align:center;min-height:98px}
 .hero h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.1}
 .hero p{margin:8px 0 0;font-size:20px;line-height:1.4;color:#4A4D50}
-.pathwrap{padding:12px 24px 24px}
-.hint{height:28px;width:100%;max-width:1440px;margin:0 auto 4px;padding-left:12.5%;text-align:left;font-size:15px;line-height:28px;color:var(--muted);transition:opacity .4s ease}
+.pathwrap{padding:22px 24px 24px}
+/* hint sits right above the orange start dot (dot is at 12.5% / 5.88% of the stage) */
+.hint{position:absolute;z-index:2;left:max(12.5%,146px);top:calc(5.88% - 48px);margin:0;transform:translateX(-50%);white-space:nowrap;text-align:center;font-size:15px;line-height:20px;color:var(--muted);pointer-events:none;transition:opacity .4s ease}
+.hint-m{display:none;margin:0 0 12px;text-align:center;font-size:15px;line-height:20px;color:var(--muted)}
 body.zoomed .hint{opacity:0}
 
 /* stage */
@@ -71,7 +73,8 @@ a.lbl:hover .t,button.lbl:hover .t{text-decoration:underline}
   .top,.foot{padding-inline:20px}
   .top{padding-block:16px}
   .stage{display:none}
-  .hint{padding-left:0;text-align:center}
+  .hint{display:none}
+  .hint-m{display:block}
   .tlwrap{display:block;padding-top:8px}
   .pathwrap{padding:12px 24px 56px}
 }
