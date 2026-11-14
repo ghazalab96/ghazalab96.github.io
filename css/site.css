@@ -33,7 +33,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 .pathwrap{padding:22px 24px 24px}
 /* hint starts at the left edge of the orange start dot's halo (dot at 12.5% / 5.88% of the stage, halo radius 20/1440) */
 .hint{position:absolute;z-index:2;left:11.11%;top:calc(5.88% - 44px);margin:0;white-space:nowrap;text-align:left;font-size:15px;line-height:20px;color:var(--muted);pointer-events:none;transition:opacity .4s ease}
-.hint-m{display:none;margin:0 0 12px;text-align:center;font-size:15px;line-height:20px;color:var(--muted)}
+.hint-m{display:none;margin:10px 0 0;text-align:center;font-size:15px;line-height:20px;color:var(--muted)}
 body.zoomed .hint{opacity:0}
 
 /* stage */
