@@ -31,7 +31,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
 .hero h1{margin:0;font-family:var(--head);font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.1}
 .hero p{margin:8px 0 0;font-size:20px;line-height:1.4;color:#4A4D50}
 .pathwrap{padding:12px 24px 24px}
-.hint{height:28px;margin:0 0 4px;text-align:center;font-size:15px;line-height:28px;color:var(--muted);transition:opacity .4s ease}
+.hint{height:28px;width:100%;max-width:1440px;margin:0 auto 4px;padding-left:12.5%;text-align:left;font-size:15px;line-height:28px;color:var(--muted);transition:opacity .4s ease}
 body.zoomed .hint{opacity:0}
 
 /* stage */
@@ -71,6 +71,7 @@ a.lbl:hover .t,button.lbl:hover .t{text-decoration:underline}
   .top,.foot{padding-inline:20px}
   .top{padding-block:16px}
   .stage{display:none}
+  .hint{padding-left:0;text-align:center}
   .tlwrap{display:block;padding-top:8px}
   .pathwrap{padding:12px 24px 56px}
 }
