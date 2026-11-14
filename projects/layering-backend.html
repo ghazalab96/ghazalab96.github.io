@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Layering Backend Applications | Ghazal Arbabzadeh</title>
 <meta name="description" content="A layered Java application, with a Spring Boot backend, a relational database and an Angular frontend.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ghazal Arbabzadeh">
+<meta property="og:title" content="Layering Backend Applications | Ghazal Arbabzadeh">
+<meta property="og:description" content="A layered Java application, with a Spring Boot backend, a relational database and an Angular frontend.">
+<meta property="og:url" content="https://ghazalab96.github.io/projects/layering-backend.html">
+<meta property="og:image" content="https://ghazalab96.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ghazal Arbabzadeh: a dashed winding path from Schneider Electric back to Dentistry">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Layering Backend Applications | Ghazal Arbabzadeh">
+<meta name="twitter:description" content="A layered Java application, with a Spring Boot backend, a relational database and an Angular frontend.">
+<meta name="twitter:image" content="https://ghazalab96.github.io/assets/og-cover.png">
+<link rel="canonical" href="https://ghazalab96.github.io/projects/layering-backend.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -28,5 +42,13 @@
 <section class="blk"><h2>Overview</h2><p>A full-stack application from the Advanced Java course. It demonstrates layered architecture: the separation of presentation, business logic and data access, built with a Spring Boot backend connected to a relational database and an Angular frontend that consumes REST endpoints.</p></section><section class="blk"><h2>Architecture</h2><p>Three layers, each with a single responsibility.</p><ol class="layers"><li>Presentation layer: Angular, TypeScript and the HTTP client</li><li>Business logic layer: Spring Boot, REST controllers and service classes</li><li>Data access layer: JDBC, SQL and the repository pattern</li></ol></section><section class="blk"><h2>Backend</h2><p>The backend exposes REST endpoints. Business logic lives in service classes, which keeps the controllers thin and the data access layer isolated. Database access uses JDBC with plain SQL and parameterized queries, with no ORM. That made the data layer transparent and showed me which queries actually ran.</p><ul><li>Spring Boot for dependency injection and the REST controllers</li><li>CRUD endpoints, tested and documented with Postman</li><li>Parameterized queries to prevent SQL injection</li><li>Relational schema design and data modeling in SQL</li></ul></section><section class="blk"><h2>Frontend</h2><p>The Angular frontend calls the backend through Angular&#x27;s HTTP client. Components are organized around the data model, and services handle the API calls.</p></section><section class="blk"><h2>What I learned</h2><ul><li>Why layered architecture matters: changing the database layer did not require touching the business logic, and the other way around</li><li>How dependency injection works in Spring Boot in practice, not only in theory</li><li>The full REST request and response cycle: routing, serialization, error handling and status codes</li><li>How to test an API with Postman before building the frontend</li><li>The tradeoff between JDBC and an ORM: raw SQL is clearer but more verbose</li></ul></section>
 
 </main>
+<footer class="foot">
+<p>&copy; <span id="yr">2025-2026</span> Ghazal Arbabzadeh</p>
+<nav aria-label="Links">
+<a href="https://github.com/ghazalab96">GitHub</a>
+<a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/">LinkedIn</a>
+</nav>
+</footer>
+<script src="../js/footer.js"></script>
 </body>
 </html>
