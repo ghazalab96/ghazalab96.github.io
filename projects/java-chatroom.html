@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Java Chatroom | Ghazal Arbabzadeh</title>
+<meta name="description" content="A multi-user chat application built with Java sockets and threads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="project">
+<header class="top">
+<a class="backbtn" href="../index.html?chapter=cs"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 L5 8 L10 13"/></svg>Back to path</a>
+<nav aria-label="Links">
+<a href="https://github.com/ghazalab96">GitHub</a>
+<a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/">LinkedIn</a>
+</nav>
+</header>
+<main class="page">
+<p class="eyebrow">University project, Semester 1</p>
+<h1>Java Chatroom</h1>
+<p class="lead">A multi-user chat application built with Java sockets and threads.</p>
+<dl class="facts"><div><dt>Type</dt><dd>University project</dd></div><div><dt>Semester</dt><dd>1</dd></div><div><dt>Focus</dt><dd>Network programming and OOP</dd></div><div><dt>Status</dt><dd>Completed</dd></div></dl>
+<ul class="tags" aria-label="Technologies"><li>Java</li><li>Socket programming</li><li>Multithreading</li><li>OOP</li><li>Gradle</li></ul>
+<div class="links"><a class="btn" href="https://github.com/ghazalab96/chatroom-Java">View on GitHub<span aria-hidden="true"> &#8599;</span></a></div>
+<section class="blk"><h2>Overview</h2><p>A client-server chat application from my first semester. It implements a multi-user chat system with Java socket programming and focuses on object-oriented design, concurrent communication and network programming basics.</p></section><section class="blk"><h2>How it works</h2><p>The server listens on a port, and every client that connects gets its own ClientHandler thread. A ClientManager keeps track of all active connections and broadcasts each message to every other connected client. The client runs as a separate application with a chat window and a network package that handles the socket connection.</p></section><section class="blk"><h2>What I built</h2><ul><li>A chat server that handles many clients at the same time</li><li>Message broadcasting, so every connected user receives each message in real time</li><li>A client application with an interface for sending and reading messages</li><li>A clean split into server, client and common packages</li></ul></section><section class="blk"><h2>Technical details</h2><ul><li>ServerSocket and Socket: the server blocks on accept() and starts a new thread for each connection</li><li>Multithreading: each ClientHandler runs on its own thread, so users never block each other</li><li>ClientManager: holds the list of active handlers and loops over it to broadcast</li><li>Gradle: build system for dependencies and running the application</li></ul></section><section class="blk"><h2>What I learned</h2><p>This was my first real experience with network programming and concurrency. The hardest part was thinking about what happens when several threads touch the same list of clients at once.</p><ul><li>How TCP connections work at the code level in Java</li><li>Why thread safety matters in a system with shared state</li><li>How to design a clean package structure for an application with several parts</li><li>The difference between something that works and something that stays stable under concurrent load</li></ul></section>
+<section class="blk"><h2>Screens</h2><figure><img src="../assets/images/chatroom/chatroom1.png" alt="Java Chatroom client window" loading="lazy"></figure><figure><video controls preload="none" aria-label="Walkthrough of the Java Chatroom"><source src="../assets/images/chatroom/chatroom-movie.mov"></video></figure></section>
+</main>
+</body>
+</html>

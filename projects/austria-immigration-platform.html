@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Austria Immigration Platform | Ghazal Arbabzadeh</title>
+<meta name="description" content="A full-stack web app that guides international students through studying and relocating to Austria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="project">
+<header class="top">
+<a class="backbtn" href="../index.html?chapter=cs"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 L5 8 L10 13"/></svg>Back to path</a>
+<nav aria-label="Links">
+<a href="https://github.com/ghazalab96">GitHub</a>
+<a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/">LinkedIn</a>
+</nav>
+</header>
+<main class="page">
+<p class="eyebrow">University project, Jun 2026</p>
+<h1>Austria Immigration Platform</h1>
+<p class="lead">A full-stack web app that guides international students through studying and relocating to Austria.</p>
+<dl class="facts"><div><dt>Type</dt><dd>University project</dd></div><div><dt>Semester</dt><dd>2</dd></div><div><dt>Focus</dt><dd>Full-stack web development</dd></div><div><dt>Status</dt><dd>Completed</dd></div></dl>
+<ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li><li>Express.js</li><li>HTML</li><li>CSS</li></ul>
+<div class="links"><a class="btn" href="https://github.com/ghazalab96/AIP-austria-immigration-platform">View on GitHub<span aria-hidden="true"> &#8599;</span></a></div>
+<section class="blk"><h2>Overview</h2><p>Developed as a second-semester university project, this platform simplifies the process of studying and relocating to Austria. It gives structured guidance on university applications, student visa procedures and relocation requirements.</p></section><section class="blk"><h2>The problem</h2><p>Moving to Austria as an international student means working through bureaucracy spread across many government websites, in German, with requirements that change depending on your country of origin. There is no single place that walks you through the whole process, from university application to visa to housing.</p><p>This platform is a central place to submit and track immigration-related requests, so nobody has to start from zero every time.</p></section><section class="blk"><h2>What I built</h2><p>A full-stack web application with user authentication and a complete request management system. Users register, log in and manage their own immigration requests.</p><ul><li>User registration and login with session-based authentication</li><li>Create, view, update and delete requests (full CRUD)</li><li>Dynamic status tracking, so each request shows its current state</li><li>Clear error messages for the user</li><li>A separate frontend and backend that talk through a REST API</li></ul></section><section class="blk"><h2>Technical details</h2><p>The project is split into a frontend and a backend folder. The backend is a Node.js and Express.js server that handles the API routes, authentication and request processing. The frontend is vanilla JavaScript, HTML and CSS, with no frameworks.</p><ul><li>REST API endpoints for authentication, request creation, updates and deletion</li><li>Session-based authentication that keeps the user signed in across page loads</li><li>Structured JSON responses, parsed and rendered dynamically in the frontend</li><li>Form validation and error feedback on both sides</li></ul></section><section class="blk"><h2>What I learned</h2><p>This was my first full-stack project. The biggest lesson was seeing how data actually flows through an application: a form submission leaves the browser, hits an Express route, gets processed and comes back as a JSON response.</p><ul><li>How to design and connect a REST API between a frontend and a backend</li><li>How to build session-based authentication from scratch, without an auth library</li><li>How to debug across two layers (frontend JavaScript and backend Node.js) at once</li><li>How to structure a project with separate concerns from the start</li></ul></section>
+<section class="blk"><h2>Screens</h2><figure><img src="../assets/images/aip/AIP1.png" alt="Austria Immigration Platform, main screen" loading="lazy"></figure><figure><img src="../assets/images/aip/AIP2.png" alt="Austria Immigration Platform, requests" loading="lazy"></figure><figure><img src="../assets/images/aip/AIP3.png" alt="Austria Immigration Platform, request details" loading="lazy"></figure><figure><video controls preload="none" aria-label="Walkthrough of the Austria Immigration Platform"><source src="../assets/images/aip/AIPmovie.mov"></video></figure></section>
+</main>
+</body>
+</html>

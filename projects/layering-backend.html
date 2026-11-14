@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layering Backend Applications | Ghazal Arbabzadeh</title>
+<meta name="description" content="A layered Java application, with a Spring Boot backend, a relational database and an Angular frontend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="project">
+<header class="top">
+<a class="backbtn" href="../index.html?chapter=cs"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 L5 8 L10 13"/></svg>Back to path</a>
+<nav aria-label="Links">
+<a href="https://github.com/ghazalab96">GitHub</a>
+<a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/">LinkedIn</a>
+</nav>
+</header>
+<main class="page">
+<p class="eyebrow">University project, Semester 2</p>
+<h1>Layering Backend Applications</h1>
+<p class="lead">A layered Java application, with a Spring Boot backend, a relational database and an Angular frontend.</p>
+<dl class="facts"><div><dt>Type</dt><dd>University project</dd></div><div><dt>Course</dt><dd>Advanced Java, Semester 2</dd></div><div><dt>School</dt><dd>Hochschule Campus Wien</dd></div><div><dt>Status</dt><dd>Completed</dd></div></dl>
+<ul class="tags" aria-label="Technologies"><li>Java</li><li>Spring Boot</li><li>Angular</li><li>JDBC</li><li>SQL</li><li>REST APIs</li><li>Postman</li></ul>
+
+<section class="blk"><h2>Overview</h2><p>A full-stack application from the Advanced Java course. It demonstrates layered architecture: the separation of presentation, business logic and data access, built with a Spring Boot backend connected to a relational database and an Angular frontend that consumes REST endpoints.</p></section><section class="blk"><h2>Architecture</h2><p>Three layers, each with a single responsibility.</p><ol class="layers"><li>Presentation layer: Angular, TypeScript and the HTTP client</li><li>Business logic layer: Spring Boot, REST controllers and service classes</li><li>Data access layer: JDBC, SQL and the repository pattern</li></ol></section><section class="blk"><h2>Backend</h2><p>The backend exposes REST endpoints. Business logic lives in service classes, which keeps the controllers thin and the data access layer isolated. Database access uses JDBC with plain SQL and parameterized queries, with no ORM. That made the data layer transparent and showed me which queries actually ran.</p><ul><li>Spring Boot for dependency injection and the REST controllers</li><li>CRUD endpoints, tested and documented with Postman</li><li>Parameterized queries to prevent SQL injection</li><li>Relational schema design and data modeling in SQL</li></ul></section><section class="blk"><h2>Frontend</h2><p>The Angular frontend calls the backend through Angular&#x27;s HTTP client. Components are organized around the data model, and services handle the API calls.</p></section><section class="blk"><h2>What I learned</h2><ul><li>Why layered architecture matters: changing the database layer did not require touching the business logic, and the other way around</li><li>How dependency injection works in Spring Boot in practice, not only in theory</li><li>The full REST request and response cycle: routing, serialization, error handling and status codes</li><li>How to test an API with Postman before building the frontend</li><li>The tradeoff between JDBC and an ORM: raw SQL is clearer but more verbose</li></ul></section>
+
+</main>
+</body>
+</html>

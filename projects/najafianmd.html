@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Najafian MD Website | Ghazal Arbabzadeh</title>
+<meta name="description" content="I rebuilt a medical practice website, moving it off Squarespace to a fast and secure static site that a non-technical client can edit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="project">
+<header class="top">
+<a class="backbtn" href="../index.html?chapter=cs"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 L5 8 L10 13"/></svg>Back to path</a>
+<nav aria-label="Links">
+<a href="https://github.com/ghazalab96">GitHub</a>
+<a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/">LinkedIn</a>
+</nav>
+</header>
+<main class="page">
+<p class="eyebrow">Freelance, Oct 2026 to Nov 2026</p>
+<h1>Najafian MD Website</h1>
+<p class="lead">I rebuilt a medical practice website, moving it off Squarespace to a fast and secure static site that a non-technical client can edit.</p>
+<dl class="facts"><div><dt>Type</dt><dd>Freelance, remote</dd></div><div><dt>Role</dt><dd>Sole developer</dd></div><div><dt>Client</dt><dd>Reza Najafian MD Plastic Surgery, Eugene, Oregon, USA</dd></div><div><dt>Status</dt><dd>Live</dd></div></dl>
+<ul class="tags" aria-label="Technologies"><li>Astro</li><li>TypeScript</li><li>Cloudflare</li><li>Sveltia CMS</li><li>GitHub Actions</li><li>Zod</li><li>WCAG 2.2 AA</li></ul>
+<div class="links"><a class="btn" href="https://najafianmd.com">Visit najafianmd.com<span aria-hidden="true"> &#8599;</span></a></div>
+<section class="blk"><h2>Overview</h2><p>A freelance project to rebuild the website of a plastic surgery practice. I was the only developer, so I handled architecture, development, security, accessibility, SEO, deployment and launch, working directly with the client.</p></section><section class="blk"><h2>What I built</h2><ul><li>A migration of an 81-page site off Squarespace with zero broken links. All 79 legacy URLs are preserved with 301 redirects, a sitemap and structured data (JSON-LD).</li><li>A Git-based admin panel (Sveltia CMS) so the client can edit content without code. Schema validation (Zod) blocks bad edits before they go live.</li><li>Serverless forms on Cloudflare Pages Functions, protected by Turnstile and a honeypot field, with rate limiting, email delivery through Resend and newsletter sign-up through Constant Contact.</li><li>A privacy-first design: patient requests are emailed and never stored, and the newsletter is explicit opt-in only.</li><li>Security hardening with Cloudflare Access (Zero Trust), a strict Content Security Policy using SHA-256 hashes, HSTS and security headers.</li><li>WCAG 2.2 AA accessibility. I audited all 81 pages with axe-core and found zero violations.</li><li>A two-environment workflow (staging and production) with GitHub Actions and build-time guards against indexing mistakes.</li><li>The production launch itself: DNS records (SPF, DKIM), custom domain and SSL, 301 forwarding, and no impact on the existing Google Workspace email.</li></ul></section><section class="blk"><h2>A launch day bug</h2><p>Browser autofill was filling the hidden anti-spam field in the contact form, which made the site drop real submissions. I found it on launch day and fixed it.</p></section><section class="blk"><h2>Tech stack</h2><p>Astro, TypeScript, Cloudflare (Pages, Functions, Workers, KV, Access, Turnstile), Sveltia CMS, GitHub Actions, Resend, Constant Contact API, Zod and axe-core.</p></section>
+
+</main>
+</body>
+</html>

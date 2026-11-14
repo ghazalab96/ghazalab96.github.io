@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flower Image Classifier | Ghazal Arbabzadeh</title>
+<meta name="description" content="A deep learning model that recognizes 102 species of flowers, built with transfer learning in PyTorch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="project">
+<header class="top">
+<a class="backbtn" href="../index.html?chapter=data"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 L5 8 L10 13"/></svg>Back to path</a>
+<nav aria-label="Links">
+<a href="https://github.com/ghazalab96">GitHub</a>
+<a href="https://www.linkedin.com/in/ghazal-arbabzadeh-bb7857161/">LinkedIn</a>
+</nav>
+</header>
+<main class="page">
+<p class="eyebrow">Udacity Nanodegree, Feb 2025</p>
+<h1>Flower Image Classifier</h1>
+<p class="lead">A deep learning model that recognizes 102 species of flowers, built with transfer learning in PyTorch.</p>
+<dl class="facts"><div><dt>Type</dt><dd>Udacity Nanodegree capstone</dd></div><div><dt>Program</dt><dd>AI Programming with Python</dd></div><div><dt>Dataset</dt><dd>Oxford 102 Flowers</dd></div><div><dt>Status</dt><dd>Completed</dd></div></dl>
+<ul class="tags" aria-label="Technologies"><li>Python</li><li>PyTorch</li><li>Deep learning</li><li>Transfer learning</li></ul>
+<div class="links"><a class="btn" href="https://github.com/ghazalab96/aipnd-project-2">View on GitHub<span aria-hidden="true"> &#8599;</span></a><a class="btn" href="../assets/flower-classifier-notebook.html">Open the notebook<span aria-hidden="true"> &#8599;</span></a></div>
+<section class="blk"><h2>Overview</h2><p>An image classifier that identifies 102 species of flowers, built as the capstone project of the Udacity AI Programming with Python Nanodegree. It uses VGG16, pretrained on ImageNet, as a feature extractor, with a custom classifier trained on the Oxford 102 Flower dataset.</p></section><section class="blk"><h2>Approach</h2><p>Instead of training a network from scratch, I used transfer learning. The convolutional layers of VGG16 stay frozen and work as a fixed feature extractor, and only the final classifier layers are trained on flowers. Training is fast and accuracy stays strong even on a small dataset.</p><ul><li>Backbone: VGG16 pretrained on ImageNet, with all convolutional weights frozen</li><li>Custom classifier: Linear 25088 to 512, ReLU, Dropout 0.2, Linear 512 to 102, LogSoftmax</li><li>Data augmentation: random resized crop and horizontal flip to reduce overfitting</li><li>Normalization with the ImageNet mean and standard deviation</li><li>NLLLoss with the Adam optimizer (learning rate 0.001), five epochs on a GPU</li></ul></section><section class="blk"><h2>Command-line interface</h2><p>Beyond the notebook, the project ships as two standalone scripts.</p><pre><code>python train.py flowers/ --arch vgg16 --epochs 5 --gpu</code></pre><pre><code>python predict.py image.jpg checkpoint.pth --top_k 5 --category_names cat_to_name.json</code></pre></section><section class="blk"><h2>What I learned</h2><ul><li>The full PyTorch training loop: ImageFolder, DataLoader, forward pass, loss, backward pass and optimizer step</li><li>Why transfer learning works: the pretrained network already detects edges, textures and shapes, so fine-tuning only maps them to new classes</li><li>How to save and restore checkpoints, including the class-to-index mapping</li><li>How to turn a Jupyter notebook into reusable command-line scripts with argparse</li><li>The difference between training accuracy and validation accuracy, and why validation is the number that matters</li></ul></section>
+<section class="blk"><h2>Screens</h2><figure><img src="../assets/images/project-classifier-cover.png" alt="Flower classifier overview" loading="lazy"></figure><figure><img src="../assets/images/classifier-flowers.png" alt="Sample flowers from the dataset" loading="lazy"></figure><figure><img src="../assets/images/classifier-prediction.png" alt="Top predictions for a flower image" loading="lazy"></figure></section>
+</main>
+</body>
+</html>
